@@ -3,8 +3,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
-    "build": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next build",
-    "start": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next start",
+    "build": "next build",
+    "start": "next start",
     "sync-guest-list": "node ./scripts/guestListFromCsv.js guest_list.csv > pages/guest_list.json",
     "now:deploy": "yarn sync-guest-list && now --prod"
   },

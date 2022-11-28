@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
-
-import guessList from './guest_list.json'
 import { t } from '@src/i18n'
 
 const QrReader = dynamic(import('react-qr-reader'), { ssr: false })
