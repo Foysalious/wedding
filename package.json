@@ -2,7 +2,7 @@
   "name": "html-template--uideck-wedding-day",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
     "build": "next build",
     "start": "next start",
     "sync-guest-list": "node ./scripts/guestListFromCsv.js guest_list.csv > pages/guest_list.json",
@@ -24,7 +24,7 @@
   "devDependencies": {
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-module-resolver": "^4.0.0",
-    "cross-env": "^5.1.1",
+    "cross-env": "^5.2.1",
     "now": "^16.7.3"
   },
   "peerDependencies": {

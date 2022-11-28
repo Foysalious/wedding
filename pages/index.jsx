@@ -4,9 +4,8 @@ import useSWR from "swr";
 
 import Head from "@src/components/Head";
 import resolvePath from "@src/utils/resolvePath";
-import appConfig from "@src/config/app";
 import { useTranslation, defaultLocale } from "@src/i18n";
-import guestList from "./guest_list.json";
+import { baseConfig, lang } from "../src/config/app.sample";
 
 const translateConfig = (appConfig, locale) => {
   if (!locale || locale === defaultLocale) {
@@ -24,7 +23,7 @@ const ShowInvite = ({ currentUrl, guestListLastUpdatedAt, guest }) => {
   const t = useTranslation(guest.locale)
 
   // Initiate config variables
-  const { logo, ogTags, coupleInfo, venue, weddingDay, weddingDate, weddingTime, calendarInfo } = translateConfig(appConfig, guest.locale)
+  const { logo, ogTags, coupleInfo, venue, weddingDay, weddingDate, weddingTime, calendarInfo } = translateConfig(baseConfig, guest.locale)
   const { brideName, groomName, coupleNameFormat } = coupleInfo
 
   const coupleNameStr = coupleNameFormat === 'GROOM_FIRST'
@@ -160,7 +159,7 @@ const ShowInvite = ({ currentUrl, guestListLastUpdatedAt, guest }) => {
                   >
                     <div className="count_content" style={{ zIndex: 1, paddingTop: 20 }}>
                       <a href={venue.mapUrl}>
-                        <img style={{ borderRadius: 5 }} src="/assets/images/oval-hotel-map-horizontal.png" alt="oval hotel map" />
+                        <img style={{ borderRadius: 5 }} src="https://www.simpleimageresizer.com/_uploads/photos/7d7ba6aa/Capture_1_596x240.png" alt="oval hotel map" />
                       </a>
                       <a href={venue.mapUrl} style={{
                         maxWidth: '75vw',
@@ -230,27 +229,21 @@ const ShowInvite = ({ currentUrl, guestListLastUpdatedAt, guest }) => {
                     </p>
                   </div>
 
-                  {appConfig.showQrCode && guest.name && (
-                    <div style={{ marginTop: 20, marginBottom: 35 }}>
-                      <QRCode value={guest.guestId} />
-                    </div>
-                  )}
-
                   <p className="text">
-                    <a href={venue.mapUrl}
+                    <a href={baseConfig.venue.mapUrl}
                       style={{
                         borderBottom: '0.2rem solid',
                         marginBottom: 10,
-                      }}><b>{venue.name}</b></a>
-                    <br />{venue.addressLine1}
-                    <br />{venue.addressLine2}
-                    <br />{venue.country}.
+                      }}><b>{baseConfig.venue.name}</b></a>
+                    <br />{baseConfig.venue.addressLine1}
+                    <br />{baseConfig.venue.addressLine2}
+                    <br />{baseConfig.venue.country}.
                   </p>
                   <p className="text" style={{ marginTop: 10 }}>
                     <b>{weddingDate} · {weddingTime}</b>
                   </p>
 
-                  {t('invitationClosing') && !t('invitationClosing').startsWith("[missing") &&
+                  {('invitationClosing') && !t('invitationClosing').startsWith("[missing") &&
                     <p className="text" style={{
                       fontStyle: "italic",
                       maxWidth: 420,
@@ -274,15 +267,6 @@ const ShowInvite = ({ currentUrl, guestListLastUpdatedAt, guest }) => {
         </div>
         <div className="container">
           <div className="footer_widget pt-50 pb-10 text-center">
-            <div className="footer_logo">
-              {logo.footerLogo &&
-                (logo.footerLogoType === "mp4" ?
-                  <video height="140" autoPlay muted loop>
-                    <source src={logo.footerLogo} type="video/mp4" />
-                  </video>
-                  : <img src={logo.footerLogo} />
-                )}
-            </div>
             <div className="footer_title">
               <h3 className="title">
                 {coupleName}
@@ -290,16 +274,8 @@ const ShowInvite = ({ currentUrl, guestListLastUpdatedAt, guest }) => {
             </div>
           </div>
         </div>
-        {appConfig.showBuiltWithInfo && (<div style={{
-          textAlign: 'center',
-          marginBottom: 40,
-        }}>
-          <small>
-            <a style={{ color: 'grey' }} href="https://github.com/wzulfikar/nextjs-wedding-invite">
-              Built with&nbsp;<object style={{ height: "0.5rem" }} data="/assets/images/heart.svg" type="image/svg+xml"></object>&nbsp;using NextJS
-            </a>
-          </small>
-        </div>)}
+
+
       </footer>
     </div >
   )

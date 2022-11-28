@@ -1,25 +1,24 @@
-const baseConfig = {
-  weddingDay: "Saturday",
-  weddingTime: "19.00 - 21.00",
-  weddingDate: "Feb 22, 2020",
+export const baseConfig = {
+  weddingDay: "Friday",
+  weddingTime: "19.00 - 23.00",
+  weddingDate: "Feb 24, 2023",
   showBuiltWithInfo: true,
   showQrCode: false,
   calendarInfo: {
-    timeStartISO: "2020-02-22T19:00:00+08:00",
-    timeEndISO: "2020-02-22T21:00:00+08:00"
+    timeStartISO: "2023-02-24T19:00:00+06:00",
+    timeEndISO: "2023-02-24T21:00:00+06:00"
   },
   coupleInfo: {
-    brideName: "Aida",
-    groomName: "Wildan",
+    brideName: "Shefa",
+    groomName: "Foysal",
     coupleNameFormat: "GROOM_FIRST"
   },
   venue: {
-    name: "Oval Hotel",
-    addressLine1: "Jalan Diponegoro No.23,",
-    addressLine2: "Surabaya, East Java 60241,",
-    city: "Surabaya",
-    country: "Indonesia",
-    mapUrl: "https://maps.app.goo.gl/pCUqr9AjSN8dxzS57"
+    name: "RAOWA CONVENTION HALL 1 Helmet, Level 2",
+    addressLine1: "RAOWA Convention Hall, বীর উত্তম জিয়াউর রহমান সড়ক, ঢাকা 1205",
+    city: "Dhaka",
+    country: "Bangladesh",
+    mapUrl: "https://goo.gl/maps/hAUonaZ8SeHiHa2X9"
   },
   logo: {
     headerLogo: "/assets/images/ring-svg.png",
@@ -33,7 +32,7 @@ const baseConfig = {
   }
 };
 
-const lang = {
+export const lang = {
   id: {
     weddingDay: "Sabtu",
     weddingDate: "22 Februari 2020",
